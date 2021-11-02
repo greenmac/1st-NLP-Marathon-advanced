@@ -1,0 +1,79 @@
+．set.union(set1, set2...)
+https://www.runoob.com/python3/ref-set-union.html
+x = {"a", "b", "c"}
+y = {"f", "d", "a"}
+z = {"c", "d", "e"}
+result = x.union(y, z)
+print(result)
+=>{'c', 'd', 'f', 'e', 'b', 'a'}
+
+．dict.fromkeys(seq[, value]))
+https://www.runoob.com/python/att-dictionary-fromkeys.html
+seq = ('Google', 'Runoob', 'Taobao')
+dict = dict.fromkeys(seq)
+print("New Dictionary : %s" %  str(dict))
+dict = dict.fromkeys(seq, 10)
+print("New Dictionary : %s" %  str(dict))
+=>New Dictionary : {'Google': None, 'Taobao': None, 'Runoob': None}
+=>New Dictionary : {'Google': 10, 'Taobao': 10, 'Runoob': 10}
+
+．numpy.sqrt(arr, out=None) - 平方根
+https://www.delftstack.com/zh-tw/api/numpy/python-numpy-sqrt/
+import numpy as np
+arr = [1, 9, 25, 49]
+arr_sqrt = np.sqrt(arr)
+print(arr_sqrt)
+=>[1, 3, 5, 7]
+
+．np.dot()
+https://blog.csdn.net/zenghaitao0128/article/details/78715140
+对于秩为1的数组，执行对应位置相乘，然后再相加；
+对于秩不为1的二维数组，执行矩阵乘法运算；超过二维的可以参考numpy库介绍
+
+．npsklearn.decomposition.PCA参数介绍(svd.explained_variance_ratio_)
+https://www.cnblogs.com/pinard/p/6243025.html
+除了这些输入参数外，有两个PCA类的成员值得关注。
+第一个是explained_variance_，它代表降维后的各主成分的方差值。
+方差值越大，则说明越是重要的主成分。
+第二个是explained_variance_ratio_，它代表降维后的各主成分的方差值占总方差值的比例，这个比例越大，则越是重要的主成分。
+
+．numpy.delete
+https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/358343/
+1.刪除一列
+dataset=[[1,2,3],[2,3,4],[4,5,6]]
+import numpy as np
+dataset = np.delete(dataset, -1, axis=1)
+print(dataset)
+=>array([[1, 2], 
+    [2, 3], 
+    [4, 5]])
+2.刪除多列
+arr = np.array([[1,2,3,4], [5,6,7,8], [9,10,11,12]]) 
+dataset = np.delete(arr, [1,2], axis=1)
+print(dataset)
+=>array([[ 1, 4], 
+    [ 5, 8], 
+    [ 9, 12]])
+
+．NLP領域中常見的文章分類，垃圾郵件分類等問題都可以藉由KNN解決。
+
+．淺談降維方法中的 PCA 與 t-SNE
+https://medium.com/d-d-mag/%E6%B7%BA%E8%AB%87%E5%85%A9%E7%A8%AE%E9%99%8D%E7%B6%AD%E6%96%B9%E6%B3%95-pca-%E8%88%87-t-sne-d4254916925b
+在機器學習當中，如果特徵數過多時，有可能會造成一些問題，像是：
+1.過擬合 (overfitting)
+2.處理速度較慢
+3.如果超過三個特徵以上不好視覺化
+PCA（principal component analysis）主成份分析
+在介紹 PCA 之前，我們先來定義一下我們的目標是什麼：
+將一個具有 n 個特徵空間的樣本，轉換為具有 k 個特徵空間的樣本，其中 k < n
+    1.將數據標準化
+    2.建立共變異數矩陣（covariance matrix）
+    3.利用奇異值分解（SVD）求得特徵向量（eigenvector）跟特徵值（eigenvalue）
+    4.通常特徵值會由大到小排列，選取 k 個特徵值與特徵向量
+    5.將原本的數據投影（映射）到特徵向量上，得到新的特徵數
+
+．機器學習: 降維(Dimension Reduction)- 線性區別分析( Linear Discriminant Analysis)
+https://chih-sheng-huang821.medium.com/%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92-%E9%99%8D%E7%B6%AD-dimension-reduction-%E7%B7%9A%E6%80%A7%E5%8D%80%E5%88%A5%E5%88%86%E6%9E%90-linear-discriminant-analysis-d4c40c4cf937
+
+．KNN 雖然被歸類為監督式學習，但當我們了解後可以發現 KNN 是透過記住訓練集資料的位置，
+在預測時透過比對預測資料與訓練集樣本的距離決定最終預測結果，所以並沒有真正『訓練的過程』。
