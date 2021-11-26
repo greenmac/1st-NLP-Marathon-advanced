@@ -77,3 +77,35 @@ https://chih-sheng-huang821.medium.com/%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92-%E9%
 
 ．KNN 雖然被歸類為監督式學習，但當我們了解後可以發現 KNN 是透過記住訓練集資料的位置，
 在預測時透過比對預測資料與訓練集樣本的距離決定最終預測結果，所以並沒有真正『訓練的過程』。
+
+．torch.pow()
+平方運算
+https://wdv4758h-notes.readthedocs.io/zh_TW/latest/python/power-operator-vs-math-pow.html
+** operator v.s. math.pow
+不知道有沒有注意過， Python 裡面有 ** operator 可以做指數運算， 
+而 math.pow 也可以做指數運算， 到底差在哪裡？ 甚至有時候 ** operator 會比較快，為什麼？
+主要的差別在於 math.pow 會把傳入的兩個參數都先轉成 float ， 
+可以保證回傳的一定是 float ， ** 則不一定 (甚至可以做虛數次方的運算)。 
+另外一個點是 ** 的行為可以根據 __pow__ 和 __rpow__ 來改變， 而 math.pow 則不會， 
+如果不想使用到 __pow__ 或 __rpow__ 的東西的話， 可以指定使用 math.pow 。
+
+．淺談pytorch中為什麼要用zero_grad() 將梯度清零
+https://walkonnet.com/archives/127850
+pytorch中為什麼要用 zero_grad() 將梯度清零
+調用backward()函數之前都要將梯度清零，因為如果梯度不清零，pytorch中會將上次計算的梯度和本次計算的梯度累加。
+這樣邏輯的好處是，當我們的硬件限制不能使用更大的bachsize時，使用多次計算較小的bachsize的梯度平均值來代替，更方便，壞處當然是每次都要清零梯度。
+
+optimizer.zero_grad()
+output = net(input)
+loss = loss_f(output, target)
+loss.backward()
+
+補充：Pytorch 為什麼每一輪batch需要設置optimizer.zero_grad
+CSDN上有人寫過原因，但是其實寫得繁瑣瞭。
+根據pytorch中的backward()函數的計算，當網絡參量進行反饋時，梯度是被積累的而不是被替換掉；但是在每一個batch時毫無疑問並不需要將兩個batch的梯度混合起來累積，因此這裡就需要每個batch設置一遍zero_grad 瞭。
+其實這裡還可以補充的一點是，如果不是每一個batch就清除掉原有的梯度，而是比如說兩個batch再清除掉梯度，這是一種變相提高batch_size的方法，對於計算機硬件不行，但是batch_size可能需要設高的領域比較適合，比如目標檢測模型的訓練。
+關於這一點可以參考這裡
+關於backward()的計算可以參考這裡
+
+．pytorch的梯度计算以及backward方法
+https://blog.csdn.net/f156207495/article/details/88727860
