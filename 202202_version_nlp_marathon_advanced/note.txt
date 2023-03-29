@@ -1,0 +1,175 @@
+．set.union(set1, set2...)
+https://www.runoob.com/python3/ref-set-union.html
+x = {"a", "b", "c"}
+y = {"f", "d", "a"}
+z = {"c", "d", "e"}
+result = x.union(y, z)
+print(result)
+=>{'c', 'd', 'f', 'e', 'b', 'a'}
+
+．dict.fromkeys(seq[, value]))
+https://www.runoob.com/python/att-dictionary-fromkeys.html
+seq = ('Google', 'Runoob', 'Taobao')
+dict = dict.fromkeys(seq)
+print("New Dictionary : %s" %  str(dict))
+dict = dict.fromkeys(seq, 10)
+print("New Dictionary : %s" %  str(dict))
+=>New Dictionary : {'Google': None, 'Taobao': None, 'Runoob': None}
+=>New Dictionary : {'Google': 10, 'Taobao': 10, 'Runoob': 10}
+
+．numpy.sqrt(arr, out=None) - 平方根
+https://www.delftstack.com/zh-tw/api/numpy/python-numpy-sqrt/
+import numpy as np
+arr = [1, 9, 25, 49]
+arr_sqrt = np.sqrt(arr)
+print(arr_sqrt)
+=>[1, 3, 5, 7]
+
+．np.dot()
+https://blog.csdn.net/zenghaitao0128/article/details/78715140
+对于秩为1的数组，执行对应位置相乘，然后再相加；
+对于秩不为1的二维数组，执行矩阵乘法运算；超过二维的可以参考numpy库介绍
+
+．npsklearn.decomposition.PCA参数介绍(svd.explained_variance_ratio_)
+https://www.cnblogs.com/pinard/p/6243025.html
+除了这些输入参数外，有两个PCA类的成员值得关注。
+第一个是explained_variance_，它代表降维后的各主成分的方差值。
+方差值越大，则说明越是重要的主成分。
+第二个是explained_variance_ratio_，它代表降维后的各主成分的方差值占总方差值的比例，这个比例越大，则越是重要的主成分。
+
+．numpy.delete
+https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/358343/
+1.刪除一列
+dataset=[[1,2,3],[2,3,4],[4,5,6]]
+import numpy as np
+dataset = np.delete(dataset, -1, axis=1)
+print(dataset)
+=>array([[1, 2], 
+    [2, 3], 
+    [4, 5]])
+2.刪除多列
+arr = np.array([[1,2,3,4], [5,6,7,8], [9,10,11,12]]) 
+dataset = np.delete(arr, [1,2], axis=1)
+print(dataset)
+=>array([[ 1, 4], 
+    [ 5, 8], 
+    [ 9, 12]])
+
+．NLP領域中常見的文章分類，垃圾郵件分類等問題都可以藉由KNN解決。
+
+．淺談降維方法中的 PCA 與 t-SNE
+https://medium.com/d-d-mag/%E6%B7%BA%E8%AB%87%E5%85%A9%E7%A8%AE%E9%99%8D%E7%B6%AD%E6%96%B9%E6%B3%95-pca-%E8%88%87-t-sne-d4254916925b
+在機器學習當中，如果特徵數過多時，有可能會造成一些問題，像是：
+1.過擬合 (overfitting)
+2.處理速度較慢
+3.如果超過三個特徵以上不好視覺化
+PCA（principal component analysis）主成份分析
+在介紹 PCA 之前，我們先來定義一下我們的目標是什麼：
+將一個具有 n 個特徵空間的樣本，轉換為具有 k 個特徵空間的樣本，其中 k < n
+    1.將數據標準化
+    2.建立共變異數矩陣（covariance matrix）
+    3.利用奇異值分解（SVD）求得特徵向量（eigenvector）跟特徵值（eigenvalue）
+    4.通常特徵值會由大到小排列，選取 k 個特徵值與特徵向量
+    5.將原本的數據投影（映射）到特徵向量上，得到新的特徵數
+
+．機器學習: 降維(Dimension Reduction)- 線性區別分析( Linear Discriminant Analysis)
+https://chih-sheng-huang821.medium.com/%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92-%E9%99%8D%E7%B6%AD-dimension-reduction-%E7%B7%9A%E6%80%A7%E5%8D%80%E5%88%A5%E5%88%86%E6%9E%90-linear-discriminant-analysis-d4c40c4cf937
+
+．KNN 雖然被歸類為監督式學習，但當我們了解後可以發現 KNN 是透過記住訓練集資料的位置，
+在預測時透過比對預測資料與訓練集樣本的距離決定最終預測結果，所以並沒有真正『訓練的過程』。
+
+．torch.pow()
+平方運算
+https://wdv4758h-notes.readthedocs.io/zh_TW/latest/python/power-operator-vs-math-pow.html
+** operator v.s. math.pow
+不知道有沒有注意過， Python 裡面有 ** operator 可以做指數運算， 
+而 math.pow 也可以做指數運算， 到底差在哪裡？ 甚至有時候 ** operator 會比較快，為什麼？
+主要的差別在於 math.pow 會把傳入的兩個參數都先轉成 float ， 
+可以保證回傳的一定是 float ， ** 則不一定 (甚至可以做虛數次方的運算)。 
+另外一個點是 ** 的行為可以根據 __pow__ 和 __rpow__ 來改變， 而 math.pow 則不會， 
+如果不想使用到 __pow__ 或 __rpow__ 的東西的話， 可以指定使用 math.pow 。
+
+．淺談pytorch中為什麼要用zero_grad() 將梯度清零
+https://walkonnet.com/archives/127850
+pytorch中為什麼要用 zero_grad() 將梯度清零
+調用backward()函數之前都要將梯度清零，因為如果梯度不清零，pytorch中會將上次計算的梯度和本次計算的梯度累加。
+這樣邏輯的好處是，當我們的硬件限制不能使用更大的bachsize時，使用多次計算較小的bachsize的梯度平均值來代替，更方便，壞處當然是每次都要清零梯度。
+
+optimizer.zero_grad()
+output = net(input)
+loss = loss_f(output, target)
+loss.backward()
+
+補充：Pytorch 為什麼每一輪batch需要設置optimizer.zero_grad
+CSDN上有人寫過原因，但是其實寫得繁瑣瞭。
+根據pytorch中的backward()函數的計算，當網絡參量進行反饋時，梯度是被積累的而不是被替換掉；但是在每一個batch時毫無疑問並不需要將兩個batch的梯度混合起來累積，因此這裡就需要每個batch設置一遍zero_grad 瞭。
+其實這裡還可以補充的一點是，如果不是每一個batch就清除掉原有的梯度，而是比如說兩個batch再清除掉梯度，這是一種變相提高batch_size的方法，對於計算機硬件不行，但是batch_size可能需要設高的領域比較適合，比如目標檢測模型的訓練。
+關於這一點可以參考這裡
+關於backward()的計算可以參考這裡
+
+．pytorch的梯度计算以及backward方法
+https://blog.csdn.net/f156207495/article/details/88727860
+
+．三大神經網路之一：DNN
+標準深度神經網路包含了一個輸入層(input layer)、一個以上的隱藏層(hidden layers)、以及一個輸出層(output layer)
+- 又稱全連結神經網路，是最常見的神經網路 
+- 表現最不出色 
+- 是一個百搭且萬用的神經網路 
+
+．三大神經網路之二：CNN
+卷積神經網絡 (CNN: Convolutional Neural Network) 最優秀長的就是圖片的處理。它受到人類視覺神經系統的啟發。  
+CNN有2大特點： 
+- 能夠有效的將大數據量的圖片降維成小數據量 
+- 能夠有效的保留圖片特徵，符合圖片處理的原則 
+目前CNN已經得到了廣泛的應用，例如：人臉識別，自動駕駛，美圖秀秀，安防等很多領域。
+通常包含兩個特別的 Layer，一個是卷積層(convolution layer)，另一個是池化層(pooling layer)。
+通常可以做好幾次的卷積、池化、卷積、池化，甚至也可以只卷積不池化，最後會接上一層或多層的全連接層，再做最後的輸出。
+- CNN 的基本原理： 卷積層–主要作用是保留圖片的特徵 池化層–主要作用是把數據降維，可以有效的避免過擬合 全連接層–根據不同任務輸出我們想要的結果
+- CNN 解決了什麼問題？ 在 CNN 出現之前，圖像對於人工智能來說是一個難題，有 2 個原因： 圖像需要處理的數據量太大，導致成本很高，效率很低，圖像在數字化的過程中很難保留不變的特徵，導致圖像處理的準確率不高。
+
+．三大神經網路之三：RNN
+遞迴神經網絡 (RNN: Recurrent Neural Network) 我們每一刻的思考都不是從頭開始的。
+也就是說，當前的結果(output) 不只受到上一個時間的輸入所影響，自然語言處理有一個研究主題叫做語言模型，語言模型被用來預測一段話的下一個詞是什麼。
+遞迴神經網路(RNN)是一種有記憶的神經網路：它會把每一次輸入所產生的狀態都記錄一些結果，儲存在暫存的記憶空間裡，成為隱藏狀態(hidden state)，再跟著下一次的輸入一起輸出，第t次時，來自輸入層的輸入為 xt，但此處還有來自前一次(即第t-1次)的狀態ht-1會跟這一次的輸入xt之後產生的狀態結合，再輸出y^t的結果。
+
+．基於全連接神經網絡發展而來的CNN和RNN，我們可以簡單的把他倆的長處區分為：
+CNN 能「看懂」圖形 
+RNN 能「記住」順序 
+
+．在仔細地講解 RNN之前，先來介紹 RNN 可以用來開發那些應用、解決那些問題。
+正負電影評價識別 
+真假新聞的識別。 
+語言翻譯 
+文章生成 
+聊天機器人 
+股價預測 
+
+．甚麼是注意力機制
+注意力機制在機器學習上， 就是根據輸入和問題的相關性加權輸入值，以加重與問題相關輸入的影響力，更有效率的運用輸入資訊。
+
+．注意力機制在機器學習的一般定義
+Q：QUERY 是 我們要問的問題
+K：KEY 代表我們的輸入值被查詢的鍵值
+V：VALUE  代表我們的輸入值的內容
+而其中 KEY AND VALUE 對同是一個輸入值來說可能是相同的值，有如我們剛舉的例子，也有可能是不同值。
+similarity 函數：用來計算 QUERY 和 KEY 的相關性。
+可以理解為將 QUERY 和KEY 用 similarity  函數計算相關性，然後用相關性的結果來加權各 VALUE 求和。
+
+．了解注意力機制在機器翻譯中運作的方式
+在機器翻譯中應用注意力機制：
+Q：QUERY → 要產生的翻譯對應的向量
+K：KEY → 每個被翻譯句輸入字對應的向量 
+V：VALUE  →  同樣是每個輸入字對應的向量 
+R 函數：→ 用點積運算計算 query and key 的關聯性
+
+．BLEU的優缺點->BLEU是目前最接近人類評分的。
+首先bleu是一種文字評估演算法，它是用來評估機器翻譯跟專業人工翻譯之間的對應關係，
+核心思想就是機器翻譯越接近專業人工翻譯，質量就越好，經過bleu演算法得出的分數可以作為機器翻譯質量的其中一個指標。
+優點：
+    方便、快速，結果比較接近人類評分。
+缺點：
+    1.不考慮語言表達（語法）上的準確性；
+    2.測評精度會受常用詞的干擾；
+    3.短譯句的測評精度有時會較高；
+    4.沒有考慮同義詞或相似表達的情況，可能會導致合理翻譯被否定；
+
